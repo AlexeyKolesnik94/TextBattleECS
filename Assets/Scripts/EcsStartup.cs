@@ -8,6 +8,8 @@ sealed class EcsStartup : MonoBehaviour
 {
 
     public GameUI GameUI;
+    public Prefabs Prefabs;
+    
     EcsWorld _world;
     EcsSystems _systems;
 
@@ -39,6 +41,7 @@ sealed class EcsStartup : MonoBehaviour
                 
             // inject service instances here (order doesn't important), for example:
             .Inject (GameUI)
+            .Inject(Prefabs)
             // .Inject (new NavMeshSupport ())
             .Init ();
     }
