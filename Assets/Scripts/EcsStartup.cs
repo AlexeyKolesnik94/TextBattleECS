@@ -1,10 +1,13 @@
 using Components;
 using Leopotam.Ecs;
+using Services;
 using Systems;
 using UnityEngine;
 
-sealed class EcsStartup : MonoBehaviour {
-        
+sealed class EcsStartup : MonoBehaviour
+{
+
+    public GameUI GameUI;
     EcsWorld _world;
     EcsSystems _systems;
 
@@ -30,13 +33,12 @@ sealed class EcsStartup : MonoBehaviour {
             .Add(new MessageSystem())
             .Add(new DestroyEntitySystem())
             
-            
             .OneFrame<MessageRequest>()
             .OneFrame<DamageRequest>()
             .OneFrame<Turn>()
                 
             // inject service instances here (order doesn't important), for example:
-            // .Inject (new CameraService ())
+            .Inject (GameUI)
             // .Inject (new NavMeshSupport ())
             .Init ();
     }

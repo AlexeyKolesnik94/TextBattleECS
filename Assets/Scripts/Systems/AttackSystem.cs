@@ -5,13 +5,14 @@ using UnityEngine;
 
 namespace Systems
 {
-    internal class AttackSystem : BaseSystem, IEcsRunSystem
+    internal class AttackSystem : BaseSystem, IEcsInitSystem
     {
         private readonly EcsFilter<BattleUnit> _filter = null;
+        private GameUI _gameUI;
 
-        public void Run()
+        public void Init()
         {
-            if (Input.GetMouseButtonDown(0))
+            _gameUI.attackButton.onClick.AddListener(() =>
             {
                 foreach (var i in _filter)
                 {
@@ -22,7 +23,7 @@ namespace Systems
                 }
 
                 _world.NewEntity().Get<Turn>();
-            }
+            });
         }
     }
 }
