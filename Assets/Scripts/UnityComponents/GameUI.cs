@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Services
+namespace UnityComponents
 {
     public class GameUI : MonoBehaviour
     {
-        public Button attackButton;
         public ScrollRect MessageScrollRect;
         public Button ClearButton;
+        public Button ResetGamBtn;
     }
 }

@@ -1,7 +1,7 @@
 using Components;
 using Leopotam.Ecs;
-using Services;
 using Systems;
+using UnityComponents;
 using UnityEngine;
 
 sealed class EcsStartup : MonoBehaviour
@@ -24,10 +24,15 @@ sealed class EcsStartup : MonoBehaviour
 #endif
 
         _systems
+            
             .Add(new CreateUnitSystem())
             .Add(new AttackSystem())
             
+            .Add(new ResetGameSystem())
+            
             .Add(new BlockShieldSystem())
+            .Add(new StoneSkinSystem())
+            
             .Add(new DamageSystem())
             .Add(new HpSliderSystem())
             .Add(new HealSystem())
