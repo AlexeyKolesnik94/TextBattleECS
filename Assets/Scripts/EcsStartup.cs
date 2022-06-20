@@ -29,6 +29,7 @@ sealed class EcsStartup : MonoBehaviour
             
             .Add(new BlockShieldSystem())
             .Add(new DamageSystem())
+            .Add(new HpSliderSystem())
             .Add(new HealSystem())
             .Add(new SecondChanceAbilitySystem())
             .Add(new MessageSystem())

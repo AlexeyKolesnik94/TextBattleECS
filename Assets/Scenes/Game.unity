@@ -366,7 +366,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 400159848}
   m_HandleRect: {fileID: 400159847}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -591,7 +591,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000044971293, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1391940059
@@ -1155,6 +1155,7 @@ MonoBehaviour:
   OrcPrefab: {fileID: 5891072871378858738, guid: 5ab9038af313c4a908d8029d5b5c36fb, type: 3}
   ElfPrefab: {fileID: 688664309473898580, guid: c6b148ec39eab4b79882be85cee09bad, type: 3}
   BattleText: {fileID: 801652978850268034, guid: 050966b55ba31472f9a9159f49d953bc, type: 3}
+  SliderHp: {fileID: 915658699070058452, guid: 8cb8be5a3baaf4cdfaa009c3ad687b63, type: 3}
 --- !u!114 &4373736678203541208
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,5 +4,6 @@ namespace Components
     {
         public string Name;
         public float Health;
+        public float MaxHealth;
     }
 }

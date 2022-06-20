@@ -11,16 +11,17 @@ namespace Systems
         
         public void Init()
         {
-            CreateOrc("Петрович");
-            CreateElf("Афанасий");
+            CreateOrc("Петрович", new Vector2(-1.96f, -1f));
+            CreateElf("Афанасий", new Vector2(1.36f, -1f));
         }
 
-        private void CreateOrc(string name)
+        private void CreateOrc(string name , Vector2 position)
         {
             EcsEntity entity = _world.NewEntity();
             ref var battleUnit = ref entity.Get<BattleUnit>();
             battleUnit.Name = "орк " + name;
             battleUnit.Health = 120f;
+            battleUnit.MaxHealth = 120f;
 
             ref var blockAbility = ref entity.Get<BlockShieldAbility>();
             blockAbility.AbilityName = "Грязная фуфайка";
@@ -37,17 +38,22 @@ namespace Systems
             entity.Get<Component<GameObject>>().Value = gameObj;
             entity.Get<Component<GameObject>>().Value.name = battleUnit.Name;
 
+            var sliderHp = Object.Instantiate(_prefab.SliderHp, position, Quaternion.identity);
+            entity.Get<Component<SliderHp>>().Value = sliderHp;
+            sliderHp.Value = battleUnit.Health / battleUnit.MaxHealth;
+            
             _world.SendMessage($"Юнит {battleUnit.Name} создан со здоровьем {battleUnit.Health}!");
             _world.SendMessage($"Со спобосбностью {blockAbility.AbilityName}");
             _world.SendMessage($"Со спобосбностью {secondChanceAbility.AbilityName}");
         }
 
-        private void CreateElf(string name)
+        private void CreateElf(string name, Vector2 position)
         {
             EcsEntity entity = _world.NewEntity();
             ref var battleUnit = ref entity.Get<BattleUnit>();
             battleUnit.Name = "эльф " + name;
             battleUnit.Health = 80f;
+            battleUnit.MaxHealth = 80f;
 
             ref var ability = ref entity.Get<Healer>();
             ability.NameAbility = "Лечение";
@@ -59,6 +65,10 @@ namespace Systems
             
             entity.Get<Component<GameObject>>().Value = gameObj;
             entity.Get<Component<GameObject>>().Value.name = battleUnit.Name;
+            
+            var sliderHp = Object.Instantiate(_prefab.SliderHp, position, Quaternion.identity);
+            entity.Get<Component<SliderHp>>().Value = sliderHp;
+            sliderHp.Value = battleUnit.Health / battleUnit.MaxHealth;
 
             _world.SendMessage($"Юнит {battleUnit.Name} создан со здоровьем {battleUnit.Health}!");
         }

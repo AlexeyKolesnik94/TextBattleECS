@@ -8,5 +8,6 @@ namespace Services
         public GameObject OrcPrefab;
         public GameObject ElfPrefab;
         public TextMeshProUGUI BattleText;
+        public SliderHp SliderHp;
     }
 }
