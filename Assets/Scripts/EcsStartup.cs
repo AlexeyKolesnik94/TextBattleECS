@@ -6,7 +6,6 @@ using UnityEngine;
 
 sealed class EcsStartup : MonoBehaviour
 {
-
     public GameUI GameUI;
     public Prefabs Prefabs;
     
@@ -36,6 +35,7 @@ sealed class EcsStartup : MonoBehaviour
             .Add(new DestroyEntitySystem())
             
             .OneFrame<MessageRequest>()
+            .OneFrame<ClickEvent>()
             .OneFrame<DamageRequest>()
             .OneFrame<Turn>()
                 

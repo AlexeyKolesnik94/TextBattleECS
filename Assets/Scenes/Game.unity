@@ -624,7 +624,7 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 0
-    m_Bottom: 0
+    m_Bottom: 35
   m_ChildAlignment: 1
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
@@ -1017,8 +1017,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 132.315}
-  m_SizeDelta: {x: 0, y: 264.63}
+  m_AnchoredPosition: {x: 0, y: 196.38}
+  m_SizeDelta: {x: 0, y: 392.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4373736676916281564
 GameObject:
@@ -1168,7 +1168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackButton: {fileID: 4373736676645128573}
-  MessageContent: {fileID: 1391940058}
+  MessageScrollRect: {fileID: 1084267168}
   ClearButton: {fileID: 1855435705}
 --- !u!4 &4373736678203541209
 Transform:

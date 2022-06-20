@@ -17,9 +17,9 @@ namespace Systems
             {
                 ref var request = ref _filter.Get1(i);
                 var text = Object.Instantiate(_prefabs.BattleText, _gameUI.MessageScrollRect.content , false);
+                text.transform.SetAsFirstSibling();
                 text.SetText(request.Message);
             }
-            _gameUI.MessageScrollRect.verticalNormalizedPosition = 0f;
         }
 
         public void Init()

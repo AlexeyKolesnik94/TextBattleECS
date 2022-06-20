@@ -7,14 +7,14 @@ namespace Systems
 {
     internal class HealSystem : BaseSystem, IEcsRunSystem
     {
-        private readonly EcsFilter<Turn> _turnFilter = null;
+        private readonly EcsFilter<ClickEvent> _clickFilter = null;
         private readonly EcsFilter<BattleUnit, Healer> _healFilter = null;
         private readonly EcsFilter<BattleUnit> _unitFilter = null;
         
         
         public void Run()
         {
-            if (_turnFilter.IsEmpty()) return;
+            if (_clickFilter.IsEmpty()) return;
             
             foreach (var i in _healFilter)
             {

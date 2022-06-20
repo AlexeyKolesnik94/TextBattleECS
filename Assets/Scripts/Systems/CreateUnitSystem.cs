@@ -18,13 +18,10 @@ namespace Systems
         private void CreateOrc(string name)
         {
             EcsEntity entity = _world.NewEntity();
-            entity.Get<Component<GameObject>>().Value = Object.Instantiate(_prefab.OrcPrefab);
             ref var battleUnit = ref entity.Get<BattleUnit>();
             battleUnit.Name = "орк " + name;
             battleUnit.Health = 120f;
 
-            entity.Get<Component<GameObject>>().Value.name = battleUnit.Name;
-            
             ref var blockAbility = ref entity.Get<BlockShieldAbility>();
             blockAbility.AbilityName = "Грязная фуфайка";
             blockAbility.ChanceBlock = 20f;
@@ -33,7 +30,13 @@ namespace Systems
             ref var secondChanceAbility = ref entity.Get<SecondChanceAbility>();
             secondChanceAbility.AbilityName = "Выжить любой ценой!";
             secondChanceAbility.ChanceValue = 10f;
+
+            var gameObj = Object.Instantiate(_prefab.OrcPrefab);
+            gameObj.GetComponent<Unit>().Entity = entity;
             
+            entity.Get<Component<GameObject>>().Value = gameObj;
+            entity.Get<Component<GameObject>>().Value.name = battleUnit.Name;
+
             _world.SendMessage($"Юнит {battleUnit.Name} создан со здоровьем {battleUnit.Health}!");
             _world.SendMessage($"Со спобосбностью {blockAbility.AbilityName}");
             _world.SendMessage($"Со спобосбностью {secondChanceAbility.AbilityName}");
@@ -42,19 +45,22 @@ namespace Systems
         private void CreateElf(string name)
         {
             EcsEntity entity = _world.NewEntity();
-            entity.Get<Component<GameObject>>().Value = Object.Instantiate(_prefab.ElfPrefab);
             ref var battleUnit = ref entity.Get<BattleUnit>();
             battleUnit.Name = "эльф " + name;
             battleUnit.Health = 80f;
+
+            ref var ability = ref entity.Get<Healer>();
+            ability.NameAbility = "Лечение";
+            ability.MinHealValue = 8f;
+            ability.MaxHealValue = 15f;
+
+            var gameObj = Object.Instantiate(_prefab.ElfPrefab);
+            gameObj.GetComponent<Unit>().Entity = entity;
             
+            entity.Get<Component<GameObject>>().Value = gameObj;
             entity.Get<Component<GameObject>>().Value.name = battleUnit.Name;
 
-            ref var healAbility = ref entity.Get<Healer>();
-            healAbility.NameAbility = "Лечение";
-            healAbility.MinHealValue = 3f;
-            healAbility.MaxHealValue = 10f;
-
-            _world.SendMessage($"Юнит {battleUnit.Name} создан сщ здоровьем {battleUnit.Health}!");
+            _world.SendMessage($"Юнит {battleUnit.Name} создан со здоровьем {battleUnit.Health}!");
         }
     }
 }
