@@ -1,7 +1,6 @@
 using Components;
 using Leopotam.Ecs;
 using Services;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Systems
@@ -35,7 +34,7 @@ namespace Systems
             secondChanceAbility.AbilityName = "Выжить любой ценой!";
             secondChanceAbility.ChanceValue = 10f;
             
-            _world.SendMessage($"Юнит {battleUnit.Name} создан сщ здоровьем {battleUnit.Health}!");
+            _world.SendMessage($"Юнит {battleUnit.Name} создан со здоровьем {battleUnit.Health}!");
             _world.SendMessage($"Со спобосбностью {blockAbility.AbilityName}");
             _world.SendMessage($"Со спобосбностью {secondChanceAbility.AbilityName}");
         }

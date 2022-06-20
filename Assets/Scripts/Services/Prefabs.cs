@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace Services
@@ -6,5 +7,6 @@ namespace Services
     {
         public GameObject OrcPrefab;
         public GameObject ElfPrefab;
+        public TextMeshProUGUI BattleText;
     }
 }
